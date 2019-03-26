@@ -1,6 +1,7 @@
 
 var express = require('express');
 var app = express();
+var http = require('http');
 
 // --> 7)  Mount the Logger middleware here
 
@@ -9,7 +10,11 @@ var app = express();
 
 
 /** 1) Meet the node console. */
-console.log("Hello World");
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  res.end('Hello World!');
+  console.log("Hello World");
+}).listen(8080);
 
 /** 2) A first working Express Server */
 
